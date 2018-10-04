@@ -50,7 +50,11 @@ module Rack
 
         begin
           @user = Gitlab.user
-          return true
+          if @user.username == auth.username || @user.email == auth.username
+            return true
+          else
+            return false
+          end
         rescue
           return false
         end
