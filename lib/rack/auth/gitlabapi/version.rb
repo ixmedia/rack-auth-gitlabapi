@@ -1,5 +1,5 @@
 module Rack
   module Auth
-    GITLABAPI_VERSION = '0.2.0'
+    GITLABAPI_VERSION = '0.2.1'
   end
 end

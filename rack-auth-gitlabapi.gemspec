@@ -14,6 +14,6 @@ Gem::Specification.new do |s|
 
   s.files           = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency  'rack', '2.0.5'
+  s.add_dependency  'rack', '~> 2.0.5'
   s.add_dependency  'gitlab', '4.4.0'
 end
