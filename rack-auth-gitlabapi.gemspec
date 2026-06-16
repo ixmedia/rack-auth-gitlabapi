@@ -11,9 +11,13 @@ Gem::Specification.new do |s|
   s.summary         = %Q{Rack middleware providing GitLab API authentication}
   s.description     = %q{rack-auth-gitlabapi : provide GitLab API authentication for Rack middleware}
   s.license         = "MIT"
-
+  s.required_ruby_version = '>= 3.0', '< 4'
   s.files           = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency  'rack', '~> 2.0.5'
-  s.add_dependency  'gitlab', '4.4.0'
+  s.add_dependency  'rack', '>= 2.0.5', '< 4'
+  s.add_dependency  'gitlab', '6.1.0'
+
+  s.add_development_dependency 'minitest', '~> 5.0'
+  s.add_development_dependency 'rack-test', '~> 2.0'
+  s.add_development_dependency 'rake'
 end

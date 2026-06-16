@@ -77,3 +77,53 @@ end
 use CustomGitlabapi
 run Sinatra::Application
 ```
+
+## Development
+
+### Setup
+
+Build the Docker image:
+
+```bash
+make install
+```
+
+### Running tests
+
+Run the full test suite inside Docker:
+
+```bash
+make tests
+```
+
+### Building the gem
+
+Build the `.gem` package using Docker:
+
+```bash
+docker compose run --rm app gem build rack-auth-gitlabapi.gemspec
+```
+
+This produces a file named `rack-auth-gitlabapi-<version>.gem` in the current directory.
+
+### Publishing the gem
+
+Push the built gem to [RubyGems.org](https://rubygems.org):
+
+```bash
+docker compose run --rm app gem push rack-auth-gitlabapi-<version>.gem
+```
+
+You need to be authenticated with RubyGems first. If not already done, run:
+
+```bash
+docker compose run --rm app gem signin
+```
+
+Or set your API key directly:
+
+```bash
+docker compose run --rm app gem push --key rubygems rack-auth-gitlabapi-<version>.gem
+```
+
+> The version number is defined in [lib/rack/auth/gitlabapi/version.rb](lib/rack/auth/gitlabapi/version.rb).

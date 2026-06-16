@@ -14,8 +14,8 @@ module Rack
           @values[key.to_sym] = @values.delete(key)
         end
         @values.keys.each do |meth|
-          bloc = Proc.new  {@values[meth] }
-            self.class.send :define_method, meth, &bloc
+          bloc = Proc.new { @values[meth] }
+          define_singleton_method(meth, &bloc)
         end
       end
     end
