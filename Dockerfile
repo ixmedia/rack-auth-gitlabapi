@@ -16,9 +16,8 @@ WORKDIR $APP_HOME
 COPY --chmod=0755 docker-entrypoint.sh /usr/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-COPY Gemfile* *.gemspec $APP_HOME/
-COPY lib/ $APP_HOME/lib/
-RUN chown -R $USER_ID:$USER_GROUP_ID $APP_HOME
+COPY --chown=$USER_ID:$USER_GROUP_ID Gemfile* *.gemspec $APP_HOME/
+COPY --chown=$USER_ID:$USER_GROUP_ID lib/ $APP_HOME/lib/
 
 # The commands below will be ran as the app user
 USER $USER_ID:$USER_GROUP_ID
