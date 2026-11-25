@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rack-auth-gitlabapi (0.3.0)
+    rack-auth-gitlabapi (0.3.1)
       gitlab (= 6.1.0)
       rack (>= 2.0.5, < 4)
 
